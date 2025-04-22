@@ -1,0 +1,70 @@
+@startuml
+
+class Usuario{
+-id: Integer
+-nome: String
+-username: String
+-email: String
+-senha: String
+}
+
+class Liga{
+-id: Integer
+-nome: String
+-descricao: String
+-dono: Usuario
+-participantes: List<Usuario>
+}
+
+class Participacao{
+-id: Integer
+-usuario: Usuario
+-liga: Liga
+-pontos: int
+-vidas: int
+}
+
+class Escolha{
+-id: Integer
+-usuario: Usuario
+-clube: Clube
+-liga: Liga
+}
+
+class Partida {
+  - partidaId: int
+  - data: LocalDate
+  - hora: LocalTime
+  - placarCasa: int
+  - placarFora: int
+  - clubeCasa: Clube
+  - clubeFora: Clube
+}
+
+class Clube {
+  -time_id: Integer
+  -nome: String
+  -sigla: String
+  -escudo: String
+}
+
+class Convite{
+-id: Integer
+-liga: Liga
+-usuario: Usuario
+}
+
+class Rodada{
+-id: Integer
+-numero: Integer
+-status: StatusRodada
+}
+
+enum STATUSRODADA{
+CONCLUIDA
+ATIVA
+EM_ANDAMENTO
+FUTURA
+}
+
+@enduml
